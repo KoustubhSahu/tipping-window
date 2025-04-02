@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  margin: 0;
 }
 
 .App-logo {
@@ -32,7 +38,47 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0.7rem 0;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:hover {
+  box-shadow: 0 0 10px 2px #777 !important;
+}
+
+.container {
+  text-align: center;
+  border: 1px solid #000;
+  width: 90%;
+  padding: 0.1rem;
+  margin: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3rem;
 }

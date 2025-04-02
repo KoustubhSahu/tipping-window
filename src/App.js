@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import TipOptions from "./components/TipOptions";
+// Importing CSS for styling
+import "./App.css";
 
-function App() {
+
+const App = () => {
+  const [totalAmount, setTotalAmount] = useState(50.00);
+  const [tip, setTip] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1>Bill Amount: <span id="amountBeforeTip">${totalAmount}</span></h1>
+        <p>Would you like to tip?</p>
+          <TipOptions totalAmount={totalAmount} tip={tip} setTip={setTip}/>
+        <p>Your total amount after tip: <span id="totalAmount">${totalAmount + (tip==="" ? 0 : tip)}</span></p>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

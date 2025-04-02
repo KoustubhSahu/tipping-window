@@ -1,0 +1,111 @@
+/* Hide the spinner arrows on Chrome, Safari, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the spinner arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.tip-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 70%;
+}
+
+.predefined-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 15vw;
+}
+
+.predefined-tip .tip-button {
+  width: 19vw;
+  font-size: 4vw;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+}
+
+.predefined-tip .tip-button span {
+  font-size: 1.7vw;
+  margin-top: 0.6rem;
+  color: #FEFEFE;
+}
+
+.custom-tip-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: 15vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-tip-view .input-wrapper {
+  border-radius: 0.7rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  font-size: 4vw;
+  background-color: #00A565;
+  color: white;
+  border: 2px solid #00A565;
+}
+
+.custom-tip-view .input-wrapper span {
+  margin: 0 0.7rem;
+}
+
+.custom-tip-view .input-wrapper input {
+  padding: 1rem 1.5rem;
+  border-radius: 0.7rem;
+  border: 0;
+  border-left: 2px solid #00A565;
+  width: 15vw;
+  text-align: center;
+}
+
+
+/*   
+  .custom-tip-view .input-wrapper::before {
+    content: "$";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; 
+    font-size: 4vw;
+  }
+   */
+
+.tip-button {
+  background-color: #3060FF;
+  color: white;
+  border-radius: 0.7rem;
+  min-height: 2rem;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+}
+
+.predefined-tip .selected-tip {
+  box-shadow: 0 0 12px 2px #777;
+  background-color: #2050FF;
+}
+
+.container .pay-button {
+  background-color: #00A565;
+  color: white;
+  border-radius: 0.7rem;
+  min-height: 2rem;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
