@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./TipOptions.css"; // Importing CSS for styling
 
-const TipOptions = ({ totalAmount, tip, setTip }) => {
+const TipOptions = ({ billAmount, tip, setTip, currencyArray, currencyIdx, setCurrWindow }) => {
   const [customTipView, setCustomTipView] = useState(false);
   const [tipSwithch, setTipSwitch] = useState("Apply Custom Tip");
   const [selectedTip, setSelectedTip] = useState("");
@@ -22,13 +22,13 @@ const TipOptions = ({ totalAmount, tip, setTip }) => {
       {customTipView ? (
         <div className="custom-tip-view">
           <div className="input-wrapper">
-            <span>$</span>
+            <span>{currencyArray[currencyIdx]}</span>
             <input
               type="number"
               onChange={(e) => handleTipChange(e.target.value, "custom")}
               required
               min="0"
-              placeholder={totalAmount*0.25}
+              placeholder={billAmount*0.25}
               value={tip}
             />
           </div>
@@ -37,21 +37,21 @@ const TipOptions = ({ totalAmount, tip, setTip }) => {
         <div className="predefined-tip">
           <button
             className={`tip-button ${selectedTip === "5%" ? "selected-tip" : ""}`}
-            onClick={() => handleTipChange(totalAmount * 0.05, "5%")}
+            onClick={() => handleTipChange(billAmount * 0.05, "5%")}
           >
-            5% <span className="tip-amount">${totalAmount * 0.05}</span>
+            5% <span className="tip-amount">{currencyArray[currencyIdx]}{billAmount * 0.05}</span>
           </button>
           <button
             className={`tip-button ${selectedTip === "10%" ? "selected-tip" : ""}`}
-            onClick={() => handleTipChange(totalAmount * 0.1, "10%")}
+            onClick={() => handleTipChange(billAmount * 0.1, "10%")}
           >
-            10% <span className="tip-amount">${totalAmount * 0.1}</span>
+            10% <span className="tip-amount">{currencyArray[currencyIdx]}{billAmount * 0.1}</span>
           </button>
           <button
             className={`tip-button ${selectedTip === "15%" ? "selected-tip" : ""}`}
-            onClick={() => handleTipChange(totalAmount * 0.15, "15%")}
+            onClick={() => handleTipChange(billAmount * 0.15, "15%")}
           >
-            15% <span className="tip-amount">${totalAmount * 0.15}</span>
+            15% <span className="tip-amount">{currencyArray[currencyIdx]}{billAmount * 0.15}</span>
           </button>
         </div>
       )}
@@ -59,7 +59,9 @@ const TipOptions = ({ totalAmount, tip, setTip }) => {
       <button className="tip-button" onClick={() => switchTipView()}>
         {tipSwithch}
       </button>
-      <button className="pay-button">Pay</button> 
+      {console.log( "THis is waht setCurrWindow is: ", setCurrWindow)}
+      <button className="pay-button" onClick={() => {setCurrWindow("PayWindow")}}>Pay</button>
+
     </div>
   );
 };

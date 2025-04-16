@@ -1,20 +1,50 @@
-import React, { useState } from "react";
-import TipOptions from "./components/TipOptions";
-// Importing CSS for styling
+import React, { useState, useEffect } from "react";
+import TipWindow from "./components/TipWindow";
+import PayWindow from "./components/PayWindow";
+import SecretButton from "./components/SecretButton";
 import "./App.css";
 
-
 const App = () => {
-  const [totalAmount, setTotalAmount] = useState(50.00);
+  const [billAmount, setBillAmount] = useState(50);
   const [tip, setTip] = useState("");
+  const [currencyIdx, setCurrencyIdx] = useState(0);
+  const [currWindow, setCurrWindow] = useState("TipWindow");
+  const [rotated, setRotated] = useState(false);
+
+  // Rotate by default on mobile
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      setRotated(true);
+    }
+  }, []);
+
+  const currencyArray = ["$", "₹"];
+
   return (
-    <div className="App">
-      <div className="container">
-        <h1>Bill Amount: <span id="amountBeforeTip">${totalAmount}</span></h1>
-        <p>Would you like to tip?</p>
-          <TipOptions totalAmount={totalAmount} tip={tip} setTip={setTip}/>
-        <p>Your total amount after tip: <span id="totalAmount">${totalAmount + (tip==="" ? 0 : tip)}</span></p>
-      </div>
+    <div className={`App ${rotated ? "rotated" : ""}`}>
+      <SecretButton setRotated={setRotated} />
+      {currWindow === "TipWindow" ? (
+        <TipWindow
+          billAmount={billAmount}
+          setBillAmount={setBillAmount}
+          tip={tip}
+          setTip={setTip}
+          currencyIdx={currencyIdx}
+          setCurrencyIdx={setCurrencyIdx}
+          currencyArray={currencyArray}
+          setCurrWindow={setCurrWindow}
+          rotated={rotated}
+        />
+      ) : (
+        <PayWindow
+          billAmount={billAmount}
+          tip={tip}
+          currencySymbol={currencyArray[currencyIdx]}
+          setCurrWindow={setCurrWindow}
+          rotated={rotated}
+        />
+      )}
     </div>
   );
 };

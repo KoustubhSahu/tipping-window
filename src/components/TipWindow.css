@@ -1,0 +1,39 @@
+.TipWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #000;
+    width: 90%;
+    padding: 0.1rem;
+    margin: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.bill-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: help;
+    user-select: none;
+}
+
+.bill-amount-edit-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.bill-amount-edit-wrapper .bill-amount-edit {
+    width: 5rem;
+}

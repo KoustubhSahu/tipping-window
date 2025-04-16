@@ -1,0 +1,112 @@
+.PayWindow {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .payment-methods,
+  .bill-summary {
+    background-color: #ffffff;
+    border-radius: 1.2rem;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    margin: 0.5rem;
+    box-sizing: border-box;
+  }
+  .payment-methods {
+    width: 55%;
+  }
+  .bill-summary {
+    width: 40%;
+  }
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .payment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3060FF;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    height: 5rem;
+    justify-content: center;
+  }
+  
+  .payment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    background-color: #2050FF;
+  }
+  
+  .payment-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .payment-message {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .toggle-options-button {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    color: #3060FF;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+  
+  .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .thank-you {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-style: italic;
+    color: #00A565;
+    font-weight: 500;
+  }
+  
