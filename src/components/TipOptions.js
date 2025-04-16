@@ -11,7 +11,7 @@ const TipOptions = ({ billAmount, tip, setTip, currencyArray, currencyIdx, setCu
     setTipSwitch(customTipView ? "Apply Custom Tip" : "Back");
   };
   const handleTipChange = (tipVal, selectedTipType) => {
-    const value = parseFloat(tipVal);
+    const value = Math.round(parseFloat(tipVal) * 100) / 100;
     setSelectedTip(value);
     setTip(value);
     setSelectedTip(selectedTipType);
@@ -37,21 +37,21 @@ const TipOptions = ({ billAmount, tip, setTip, currencyArray, currencyIdx, setCu
         <div className="predefined-tip">
           <button
             className={`tip-button ${selectedTip === "5%" ? "selected-tip" : ""}`}
-            onClick={() => handleTipChange(billAmount * 0.05, "5%")}
+            onClick={() => handleTipChange(Math.round(billAmount*5)/100, "5%")}
           >
-            5% <span className="tip-amount">{currencyArray[currencyIdx]}{billAmount * 0.05}</span>
+            5% <span className="tip-amount">{currencyArray[currencyIdx]}{Math.round(billAmount*5)/100}</span>
           </button>
           <button
             className={`tip-button ${selectedTip === "10%" ? "selected-tip" : ""}`}
-            onClick={() => handleTipChange(billAmount * 0.1, "10%")}
+            onClick={() => handleTipChange(Math.round(billAmount*10)/100, "10%")}
           >
-            10% <span className="tip-amount">{currencyArray[currencyIdx]}{billAmount * 0.1}</span>
+            10% <span className="tip-amount">{currencyArray[currencyIdx]}{Math.round(billAmount*10)/100}</span>
           </button>
           <button
             className={`tip-button ${selectedTip === "15%" ? "selected-tip" : ""}`}
-            onClick={() => handleTipChange(billAmount * 0.15, "15%")}
+            onClick={() => handleTipChange(Math.round(billAmount*15)/100, "15%")}
           >
-            15% <span className="tip-amount">{currencyArray[currencyIdx]}{billAmount * 0.15}</span>
+            15% <span className="tip-amount">{currencyArray[currencyIdx]}{Math.round(billAmount*15)/100}</span>
           </button>
         </div>
       )}
